@@ -32,7 +32,7 @@ public class FirebaseUtil {
     public static FirebaseAuth.AuthStateListener mAuthListener;
     public static ArrayList<TravelDeal> mDeals;
     private static ListActivity caller;
-    public static boolean isAdmin;
+    public static boolean isAdmin ;
 
     public static FirebaseStorage mStorage;
     public static StorageReference mStorageRef;
@@ -49,12 +49,11 @@ public class FirebaseUtil {
                 public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                     if(firebaseAuth.getCurrentUser() == null) {
                         FirebaseUtil.signIn();
+                        Toast.makeText(callerActivity.getBaseContext(),"Welcome Back!",Toast.LENGTH_LONG).show();
                     }else {
                         String userId = firebaseAuth.getUid();
                         checkAdmin(userId);
                     }
-
-                    Toast.makeText(callerActivity.getBaseContext(),"Welcome Back!",Toast.LENGTH_LONG).show();
                     // Choose authentication providers
                 }
             };

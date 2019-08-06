@@ -35,6 +35,7 @@ dependencies {
         exclude group: 'com.android.support'
         exclude module: ['exifinterface', 'support-annotations']
     }
+    implementation 'androidx.cardview:cardview:1.0.0'
 
 }
 
